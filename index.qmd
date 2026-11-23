@@ -2,6 +2,6 @@
 title: "Mallard Duck Movement"
 ---
 
-This is a Quarto website.
+Most of the wild mallards (*Anas platyrhynchos*) tracked in this project stay close to home year-round at Lake Constance—a large freshwater lake at the northern foot of the Alps where Germany, Switzerland, and Austria meet. While the majority of fixes cluster tightly around the lake across all four seasons, a few migratory ducks travel hundreds of kilometers northeast during spring and summer across Germany and Poland toward the Baltic region before returning for winter. Across every month of the year, the birds spend nearly all of their time resting or swimming slowly (median speed around 0.22 m/s), punctuated by occasional high-speed flights that peak in summer and autumn.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+The dataset comes from GPS and Argos tracking studies hosted on Movebank (collected by researchers at the Max Planck Institute of Animal Behavior between 2007 and 2017), covering more than 83,000 location fixes from 52 individual ducks. Use the navigation bar above to explore the [**Map**](map.qmd) page, which plots individual duck tracks across Central and Northern Europe, and the [**Seasons**](seasons.qmd) page, which compares movement speeds month by month across the calendar year.
