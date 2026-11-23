@@ -1,0 +1,76 @@
+---
+title: "Map"
+---
+
+```{r}
+#| message: false
+library(tidyverse)
+library(sf)
+library(rnaturalearth)
+```
+
+```{r}
+#| cache: true
+#| message: false
+mallards <- read_csv("data/mallards.csv") |>
+  mutate(
+    timestamp = ymd_hms(timestamp),
+    month = month(timestamp, label = TRUE),
+    month_num = month(timestamp),
+    year = year(timestamp),
+    # Map month numbers to seasons and order levels chronologically
+    season = factor(
+      case_when(
+        month_num %in% 3:5 ~ "Spring",
+        month_num %in% 6:8 ~ "Summer",
+        month_num %in% 9:11 ~ "Autumn",
+        month_num %in% c(12, 1, 2) ~ "Winter"
+      ),
+      levels = c("Spring", "Summer", "Autumn", "Winter")
+    )
+  )
+
+write_rds(mallards, "data/mallards.rds")
+```
+
+```{r}
+# Count rows per duck_id and sort descending with sort = TRUE
+mallards |> count(duck_id, sort = TRUE)
+```
+
+```{r}
+# Summarize bounding box (min/max latitude and longitude), ignoring any NAs
+mallards |>
+  summarize(
+    min_lat = min(lat, na.rm = TRUE),
+    max_lat = max(lat, na.rm = TRUE),
+    min_long = min(long, na.rm = TRUE),
+    max_long = max(long, na.rm = TRUE)
+  )
+```
+
+```{r}
+countries <- ne_countries(scale = "medium", returnclass = "sf")
+
+mallards_roi <- mallards |>
+  filter(between(lat, 47, 55), between(long, 8, 25))
+
+ggplot() +
+  geom_sf(data = countries, fill = "gray95", color = "gray70") +
+  # Hide the 52-duck legend so it doesn't crowd out the map
+  geom_point(
+    data = mallards_roi,
+    aes(x = long, y = lat, color = duck_id),
+    size = 0.5,
+    alpha = 0.4,
+    show.legend = FALSE
+  ) +
+  # Zoom the world map window to our region of interest
+  coord_sf(xlim = c(8, 25), ylim = c(47, 55), expand = FALSE) +
+  labs(
+    title = "Mallard GPS Fixes Across Europe",
+    x = "Longitude",
+    y = "Latitude"
+  ) +
+  theme_minimal()
+```
