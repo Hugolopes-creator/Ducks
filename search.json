@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Mallard Duck Movement",
+    "section": "",
+    "text": "Most of the wild mallards (Anas platyrhynchos) tracked in this project stay close to home year-round at Lake Constance—a large freshwater lake at the northern foot of the Alps where Germany, Switzerland, and Austria meet. While the majority of fixes cluster tightly around the lake across all four seasons, a few migratory ducks travel hundreds of kilometers northeast during spring and summer across Germany and Poland toward the Baltic region before returning for winter. Across every month of the year, the birds spend nearly all of their time resting or swimming slowly (median speed around 0.22 m/s), punctuated by occasional high-speed flights that peak in summer and autumn.\nThe dataset comes from GPS and Argos tracking studies hosted on Movebank (collected by researchers at the Max Planck Institute of Animal Behavior between 2007 and 2017), covering more than 83,000 location fixes from 52 individual ducks. Use the navigation bar above to explore the Map page, which plots individual duck tracks across Central and Northern Europe, and the Seasons page, which compares movement speeds month by month across the calendar year."
+  },
+  {
+    "objectID": "map.html",
+    "href": "map.html",
+    "title": "Map",
+    "section": "",
+    "text": "# A tibble: 52 × 2\n   duck_id                        n\n   &lt;chr&gt;                      &lt;int&gt;\n 1 2351 - Radolfzell JC 72052 20169\n 2 1806 - Radolfzell JC70792  10139\n 3 2318 - Radolfzell JC 72053  9522\n 4 2312 - Radolfzell JC 72051  7163\n 5 2497 - Radolfzell JC74415   4835\n 6 2339 - Radolfzell JC 72018  4645\n 7 2495 - Radolfzell JC74406   3030\n 8 2501 - Radolfzell JC74418   2861\n 9 2502 - Radolfzell JC74417   2715\n10 2489 - Radolfzell JC74412   2514\n# ℹ 42 more rows\n\n\n\n\n# A tibble: 1 × 4\n  min_lat max_lat min_long max_long\n    &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;\n1    47.3    53.9     7.83     23.6"
+  },
+  {
+    "objectID": "seasons.html",
+    "href": "seasons.html",
+    "title": "Seasons",
+    "section": "",
+    "text": "# A tibble: 12 × 2\n   month     n\n   &lt;ord&gt; &lt;int&gt;\n 1 Jan    3266\n 2 Feb    4960\n 3 Mar    7524\n 4 Apr    6369\n 5 May    3423\n 6 Jun    2842\n 7 Jul    5748\n 8 Aug    9659\n 9 Sep   20977\n10 Oct    9890\n11 Nov    4825\n12 Dec    3796\n\n\n\n\n# A tibble: 1 × 7\n    min   q25 median  mean   q75   max na_count\n  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;int&gt;\n1     0   0.1   0.22 0.416  0.44  127.     2312"
+  }
+]
